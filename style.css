@@ -1,0 +1,68 @@
+body {
+  font-family: "Trebuchet MS", sans-serif;
+  background: radial-gradient(circle at top, #ffb6f9, #ffe6f9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0;
+}
+
+.booklet {
+  perspective: 2000px;
+  width: 95vw;   /* occupe 95% de la largeur écran */
+  max-width: 420px;
+}
+
+.book {
+  display: flex;
+  width: 100%;
+  height: 55vh; /* s’adapte à la hauteur écran */
+  min-height: 220px;
+  max-height: 320px;
+  border: 3px solid gold;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #f7d6f5, #fff0fa);
+  box-shadow: 0 0 12px rgba(255, 105, 180, 0.5), inset 0 0 8px gold;
+}
+
+.page {
+  flex: 1;
+  padding: 10px;
+  background: #fff8f0;
+  border-radius: 4px;
+  box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+  text-align: center;
+  font-size: 1em;
+  overflow-wrap: break-word;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page.left { border-right: 2px solid #c9a97c; }
+.page.right { border-left: 2px solid #c9a97c; }
+
+.controls {
+  margin-top: 12px;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+button {
+  background: linear-gradient(135deg, #ff69b4, #ff1493);
+  border: 2px solid gold;
+  border-radius: 10px;
+  padding: 12px 18px;
+  color: white;
+  font-size: 1.2em;
+  cursor: pointer;
+  font-family: "Trebuchet MS", sans-serif;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
