@@ -6,6 +6,7 @@ const bons = [
 ];
 
 let pageIndex = 0;
+const useBtn = document.getElementById("useBonBtn");
 
 // Charger depuis localStorage
 if (localStorage.getItem("bons")) {
@@ -19,13 +20,14 @@ function renderBook() {
 
   if (pageIndex === 0) {
     left.innerHTML = "<h2>✨ Mon Carnet Magique ✨</h2><p>Pour Shanaa 💖</p>";
-    right.innerHTML = "<p>Appuie sur➡️ pour découvrir tes bons 🎁</p>";
+    right.innerHTML = "<p>Appuie sur ➡️ pour découvrir tes bons 🎁</p>";
+    useBtn.style.display = "none";
   } else {
     const bon = bons[pageIndex - 1];
     left.innerHTML = `<p class="quote">${bon.quote}</p>`;
-    right.innerHTML = bon.used 
-      ? `<p class="used">❌ ${bon.text}</p>` 
-      : `<p>${bon.text}</p><br><button onclick="useBon(${pageIndex - 1})">Utiliser ce bon</button>`;
+    right.innerHTML = bon.text;
+    useBtn.style.display = bon.used ? "none" : "flex";
+    useBtn.onclick = () => useBon(pageIndex - 1);
   }
 }
 
@@ -51,5 +53,7 @@ function resetCarnet() {
 }
 
 renderBook();
+
+
 
 
