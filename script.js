@@ -7,6 +7,8 @@ const bons = [
 
 let pageIndex = 0;
 const useBtn = document.getElementById("useBonBtn");
+const pageSound = document.getElementById("pageSound");
+const tearSound = document.getElementById("tearSound");
 
 // Charger depuis localStorage
 if (localStorage.getItem("bons")) {
@@ -20,28 +22,29 @@ function renderBook() {
 
   if (pageIndex === 0) {
     left.innerHTML = "<h2>✨ Mon Carnet Magique ✨</h2><p>Pour Shanaa 💖</p>";
-    right.innerHTML = "<p>Appuie sur ➡️ pour découvrir tes bons 🎁</p>";
+    right.innerHTML = "<p>Tourne la page ➡️ pour découvrir tes bons 🎁</p>";
     useBtn.style.display = "none";
   } else {
     const bon = bons[pageIndex - 1];
     left.innerHTML = `<p class="quote">${bon.quote}</p>`;
-    right.innerHTML = bon.text;
+    right.innerHTML = bon.used ? `<s>${bon.text}</s><br><small>(déjà utilisé ✂️)</small>` : bon.text;
     useBtn.style.display = bon.used ? "none" : "flex";
     useBtn.onclick = () => useBon(pageIndex - 1);
   }
 }
 
 function prevPage() {
-  if (pageIndex > 0) { pageIndex--; renderBook(); }
+  if (pageIndex > 0) { pageIndex--; renderBook(); pageSound.play(); }
 }
 
 function nextPage() {
-  if (pageIndex < bons.length) { pageIndex++; renderBook(); }
+  if (pageIndex < bons.length) { pageIndex++; renderBook(); pageSound.play(); }
 }
 
 function useBon(i) {
   bons[i].used = true;
   localStorage.setItem("bons", JSON.stringify(bons));
+  tearSound.play();
   renderBook();
 }
 
@@ -53,7 +56,6 @@ function resetCarnet() {
 }
 
 renderBook();
-
 
 
 
