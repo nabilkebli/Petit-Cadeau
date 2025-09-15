@@ -3,26 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mon Carnet de Bons</title>
+  <title>✨ Carnet de Bons ✨</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cookie&family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
+  <div class="magic-bg"></div>
+
   <div class="booklet">
     <div class="book">
       <div class="page left" id="page-left"></div>
       <div class="page right" id="page-right"></div>
     </div>
+
     <div class="controls">
       <button onclick="prevPage()">⬅️</button>
       <button onclick="nextPage()">➡️</button>
       <button onclick="resetCarnet()">🔄</button>
     </div>
+
     <div class="use-button-container">
       <button id="useBonBtn" onclick="">🎟️ Utiliser ce bon</button>
     </div>
   </div>
+
+  <audio id="pageSound" src="page.mp3"></audio>
+  <audio id="tearSound" src="tear.mp3"></audio>
+
   <script src="script.js"></script>
 </body>
 </html>
+
+
 
 
