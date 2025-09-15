@@ -1,23 +1,12 @@
 body {
   margin: 0;
-  font-family: 'Cookie', cursive;
-  background: radial-gradient(circle at top, #ffb6f9, #ffe6f9);
+  font-family: 'Cormorant Garamond', serif;
+  background: radial-gradient(circle at top, #e8d3ff, #f8f1e7);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   height: 100vh;
-  overflow: hidden;
-}
-
-/* Arrière-plan magique avec étoiles */
-.magic-bg {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: url("https://www.transparenttextures.com/patterns/stardust.png");
-  opacity: 0.3;
-  z-index: -1;
 }
 
 .booklet {
@@ -31,38 +20,37 @@ body {
   width: 100%;
   height: 55vh;
   min-height: 220px;
-  max-height: 330px;
-  border: 4px solid gold;
-  border-radius: 15px;
-  background: linear-gradient(145deg, #f9d6f7, #fff0fa);
-  box-shadow: 0 0 20px rgba(255, 105, 180, 0.7), inset 0 0 12px gold;
+  max-height: 340px;
+  border: 3px solid #b8860b;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #fefaf6, #f3e8dd);
+  box-shadow: 0 0 18px rgba(128, 0, 128, 0.4), inset 0 0 8px #b8860b;
   position: relative;
 }
 
-/* Coins dorés façon grimoire */
 .book::before, .book::after {
   content: "✦";
   position: absolute;
-  font-family: "Cinzel Decorative", cursive;
-  font-size: 2em;
-  color: gold;
+  font-family: "Cinzel Decorative", serif;
+  font-size: 1.8em;
+  color: #b8860b;
 }
-.book::before { top: 5px; left: 10px; }
-.book::after { bottom: 5px; right: 10px; }
+.book::before { top: 6px; left: 10px; }
+.book::after { bottom: 6px; right: 10px; }
 
 .page {
   flex: 1;
-  padding: 15px;
-  background: #fff8f0;
-  border-radius: 6px;
-  box-shadow: inset 0 0 8px rgba(0,0,0,0.25);
+  padding: 12px;
+  background: #fffdf8;
+  border-radius: 4px;
+  box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
   text-align: center;
-  font-size: 1.1em;
+  font-size: 1em;
+  line-height: 1.4em;
   display: flex;
   align-items: center;
   justify-content: center;
-  line-height: 1.4em;
-  position: relative;
+  overflow-wrap: break-word;
 }
 
 .page.left { border-right: 2px solid #c9a97c; }
@@ -72,27 +60,12 @@ body {
   font-size: 0.9em;
   font-style: italic;
   font-family: "Cinzel Decorative", serif;
-  padding: 10px;
-}
-
-/* Petites étoiles magiques autour du texte */
-.page::after {
-  content: "✨";
-  font-size: 1.2em;
-  color: pink;
-  position: absolute;
-  bottom: 5px;
-  right: 8px;
-  animation: sparkle 2s infinite;
-}
-
-@keyframes sparkle {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(1.3); }
+  padding: 8px;
+  color: #5a3e36;
 }
 
 .controls {
-  margin-top: 12px;
+  margin-top: 10px;
   display: flex;
   justify-content: space-around;
   width: 100%;
@@ -105,19 +78,27 @@ body {
 }
 
 button {
-  background: linear-gradient(135deg, #ff69b4, #ff1493);
-  border: 2px solid gold;
+  background: linear-gradient(135deg, #6a0dad, #9932cc);
+  border: 2px solid #b8860b;
   border-radius: 10px;
-  padding: 12px 18px;
+  padding: 10px 16px;
   color: white;
-  font-size: 1.1em;
+  font-size: 1em;
   cursor: pointer;
-  font-family: "Cookie", cursive;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
 }
 
 button:active {
   transform: scale(0.95);
 }
+
+@media (max-width: 600px) {
+  .book { height: 50vh; }
+  .page { font-size: 0.9em; padding: 10px; }
+  button { font-size: 0.9em; padding: 8px 12px; }
+}
+
 
 
 
