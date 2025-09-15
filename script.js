@@ -1,14 +1,14 @@
 const bons = [
-  { text: "🎤 Bon pour un message audio surprise (souvenir ou pensée pour toi).", quote: "L'amour est la poésie des sens. — Honoré de Balzac", used: false },
-  { text: "📖 Bon pour une lecture à voix haute (poème ou extrait choisi).", quote: "Chaque jour je t’aime davantage, aujourd’hui plus qu’hier et bien moins que demain. — Rosemonde Gérard", used: false },
-  { text: "☕ Bon pour un café/thé ensemble en visio.", quote: "Le bonheur le plus doux est celui qu’on partage. — Jacques Delille", used: false },
-  { text: "💌 Bon pour une lettre d’amour envoyée en message.", quote: "Aimer, ce n’est pas se regarder l’un l’autre, c’est regarder ensemble dans la même direction. — Antoine de Saint-Exupéry", used: false },
-  { text: "🎬 Bon pour une soirée film/série à distance en synchro.", quote: "Les souvenirs se construisent à deux, même à distance. — Anonyme", used: false },
-  { text: "📝 Bon pour un poème ou un petit texte romantique écrit spécialement pour toi.", quote: "Un seul être vous manque et tout est dépeuplé. — Lamartine", used: false },
-  { text: "🌅 Bon pour une semaine de réveils en douceur (un message du matin pendant 7 jours).", quote: "Chaque matin est une promesse de bonheur. — Victor Hugo", used: false },
-  { text: "🎨 Bon pour une création artistique (dessin, collage ou petit montage personnalisé).", quote: "L’art est la rencontre inattendue de formes et de sentiments. — André Breton", used: false },
-  { text: "📸 Bon pour une mini-chasse aux souvenirs (photo + anecdote spéciale).", quote: "Le souvenir est une rose au doux parfum qui jamais ne meurt. — George Sand", used: false },
-  { text: "🎮 Bon pour une activité interactive à distance (mini-jeu, quiz ou escape game que je crée pour toi).", quote: "Le jeu est la forme la plus élevée de la recherche. — Albert Einstein", used: false }
+  { text: "🎤 Bon pour un message audio surprise. Au cas où ma voix de puant te manque! ", quote: "L'amour est la poésie des sens. — Honoré de Balzac", used: false, photo: "photo1.gif" },
+  { text: "📖 Bon pour une lecture à voix haute. Un poème par exemple ou ce que tu veux whatever je suis ta chose :) ", quote: "Chaque jour je t’aime davantage, aujourd’hui plus qu’hier et bien moins que demain. — Rosemonde Gérard", used: false, photo: "photo8.jpg" },
+  { text: "☕ Bon pour un café/thé ensemble en visio.", quote: "Le bonheur le plus doux est celui qu’on partage. — Jacques Delille", used: false, photo: "photo3.gif" },
+  { text: "💌 Bon pour une lettre d’amour. Je ne te l'enverrai pas par la Poste ne t'en fais pas ;) ", quote: "Aimer, ce n’est pas se regarder l’un l’autre, c’est regarder ensemble dans la même direction. — Antoine de Saint-Exupéry", used: false, photo: "photo4.jpg" },
+  { text: "🎬 Bon pour une soirée WatchParty. Arcane Saison 2 OMG ?? ", quote: "Les souvenirs se construisent à deux, même à distance. — Anonyme", used: false, photo: "photo5.jpg" },
+  { text: "📝 Bon pour un poème. C'est le retour du disquetteur fou !! ", quote: "Un seul être vous manque et tout est dépeuplé. — Lamartine", used: false, photo: "photo6.jpg" },
+  { text: "🌅 Bon pour une semaine de réveils en douceur. Pour une semaine plus compliqués que les autres", quote: "Chaque matin est une promesse de bonheur. — Victor Hugo", used: false, photo: "photo7.jpg" },
+  { text: "🎨 Bon pour une création artistique. Tu es mon inspiration <3 ", quote: "L’art est la rencontre inattendue de formes et de sentiments. — André Breton", used: false, photo: "photo2.gif" },
+  { text: "📸 Bon pour des photos/vidéos droles de moi à l'époque avec le contexte.", quote: "Le souvenir est une rose au doux parfum qui jamais ne meurt. — George Sand", used: false, photo: "photo9.jpg" },
+  { text: "🎮 Bon pour une activité interactive à distance (jeux vidéo, ou autre).", quote: "Jouer ensemble, c’est encore une façon de s’aimer. — Anonyme", used: false, photo: "photo10.png" }
 ];
 
 let pageIndex = 0;
@@ -26,15 +26,15 @@ function renderBook() {
   const right = document.getElementById("page-right");
 
   if (pageIndex === 0) {
-    left.innerHTML = "<h2>📖 Carnet Magique</h2><p>Pour Shanaa 💖</p>";
-    right.innerHTML = "<p>Tourne la page ➡️ pour découvrir tes bons 🎁</p>";
+    left.innerHTML = "<h2>📖 Carnet De Bons</h2><p>Pour Shanaa 💖</p>";
+    right.innerHTML = "<p>Tourne la page➡️ pour découvrir tes bons 🎁 </p> <p> Merci pour ces 3 mois </p>";
     useBtn.style.display = "none";
   } else {
     const bon = bons[pageIndex - 1];
     left.innerHTML = `<p class="quote">${bon.quote}</p>`;
     right.innerHTML = bon.used 
       ? `<s>${bon.text}</s><br><small>(déjà utilisé ✂️)</small>` 
-      : bon.text;
+      : `<p>${bon.text}</p><img src="${bon.photo}" alt="photo">`;
     useBtn.style.display = bon.used ? "none" : "flex";
     useBtn.onclick = () => useBon(pageIndex - 1);
   }
@@ -63,8 +63,4 @@ function resetCarnet() {
 }
 
 renderBook();
-
-
-
-
 
