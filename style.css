@@ -63,7 +63,7 @@ body {
 
 .page img {
   max-width: 90%;
-  max-height: 65%;
+  max-height: 85%;
   margin-top: 12px;
   border: 3px solid #b8860b;
   border-radius: 10px;
@@ -105,3 +105,4 @@ button:active {
   .page img { max-height: 40%; }
   button { font-size: 0.9em; padding: 8px 12px; }
 }
+
